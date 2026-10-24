@@ -20,23 +20,37 @@ jobs:
           python-version: "3.12"
       - name: Validate formulas and safety guardrails
         run: python -m unittest discover -s tests -v
-      - name: Fetch genuine archived Kalshi prices (public GET only)
-        run: >-
-          python -m arb_research.archive
-          --start 2026-01-01 --end 2026-02-01
-          --max-markets 100 --period 60 --max-pages 8
-          --out data/historical
-      - name: Examine timestamp-matched historical prices and fees
+      - name: Install independent research data readers
+        run: python -m pip install pandas pyarrow
+      - name: Copy published 2025-26 Kalshi public price archive (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/archive_copy
+          # Pin the archive to a historic source commit for reproducibility.
+          # This only copies public DATA; no trading bot code or credentials.
+          SNAPSHOT="c29873bd0caab66ad03e76994d8f661d6e7d65c3"
+          PREFIX="https://raw.githubusercontent.com/akilatrades/sports-market-maker"
+          for SERIES in KXNBAPTS KXNBAREB KXNBAAST KXNBA3PT; do
+            for KIND in markets candles; do
+              FILENAME="${KIND}_${SERIES}.parquet"
+              curl -fSL --retry 3 --retry-delay 2 \
+                "${PREFIX}/${SNAPSHOT}/data/kalshi_history/${FILENAME}" \
+                -o "data/archive_copy/${FILENAME}"
+            done
+          done
+      - name: Import authentic historical quotes into standalone research format
+        run: python -m arb_research.import_parquet --input data/archive_copy --output data/historical
+      - name: Backtest matched historical quote pairs after illustrative fees
         run: >-
           python -m arb_research.screen
-          --input data/historical
-          --contracts 1
+          --input data/historical --contracts 1
           --output outputs/historical_backtest.json
-      - name: Upload raw audit data and result (never commit to live repo)
+      - name: Preserve evidence and results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: historical-quote-screen
+          name: independent-historical-backtest
           path: |
             data/historical/manifest.json
             data/historical/markets.jsonl
