@@ -22,25 +22,13 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Install independent research data readers
         run: python -m pip install pandas pyarrow
-      - name: Copy published 2025-26 Kalshi public price archive (read-only)
+      - name: Verify independently stored historical archives
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p data/archive_copy
-          # Pin the archive to a historic source commit for reproducibility.
-          # This only copies public DATA; no trading bot code or credentials.
-          SNAPSHOT="c29873bd0caab66ad03e76994d8f661d6e7d65c3"
-          PREFIX="https://raw.githubusercontent.com/akilatrades/sports-market-maker"
-          for SERIES in KXNBAPTS KXNBAREB KXNBAAST KXNBA3PT; do
-            for KIND in markets candles; do
-              FILENAME="${KIND}_${SERIES}.parquet"
-              curl -fSL --retry 3 --retry-delay 2 \
-                "${PREFIX}/${SNAPSHOT}/data/kalshi_history/${FILENAME}" \
-                -o "data/archive_copy/${FILENAME}"
-            done
-          done
+          (cd data/reference && sha256sum -c SHA256SUMS.txt)
       - name: Import authentic historical quotes into standalone research format
-        run: python -m arb_research.import_parquet --input data/archive_copy --output data/historical
+        run: python -m arb_research.import_parquet --input data/reference --output data/historical
       - name: Backtest matched historical quote pairs after illustrative fees
         run: >-
           python -m arb_research.screen
