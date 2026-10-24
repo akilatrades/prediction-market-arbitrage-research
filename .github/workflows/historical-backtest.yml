@@ -34,6 +34,16 @@ jobs:
           python -m arb_research.screen
           --input data/historical --contracts 1
           --output outputs/historical_backtest.json
+      - name: Sensitivity — 10 paired contracts (historical depth unverified)
+        run: >-
+          python -m arb_research.screen
+          --input data/historical --contracts 10
+          --output outputs/historical_backtest_10_pairs.json
+      - name: Sensitivity — 100 paired contracts (historical depth unverified)
+        run: >-
+          python -m arb_research.screen
+          --input data/historical --contracts 100
+          --output outputs/historical_backtest_100_pairs.json
       - name: Preserve evidence and results
         if: always()
         uses: actions/upload-artifact@v4
@@ -43,6 +53,6 @@ jobs:
             data/historical/manifest.json
             data/historical/markets.jsonl
             data/historical/quotes.jsonl
-            outputs/historical_backtest.json
+            outputs/historical_backtest*.json
           if-no-files-found: warn
           retention-days: 14
