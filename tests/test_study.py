@@ -43,6 +43,16 @@ class HistoricalBacktest(unittest.TestCase):
         self.assertIsNone(res["realized_profit_usd"])
         self.assertFalse(res["candidates"][0]["confirmed_executable_trade"])
 
+    def test_order_size_changes_fee_rounding_not_fills(self):
+        data = [quote("L", self.t, ".04", ".05"),
+                quote("H", self.t, ".06", ".08")]
+        at_one = study(self.markets, data, quantity=1)
+        at_ten = study(self.markets, data, quantity=10)
+        self.assertEqual(at_one["illustratively_fee_positive_samples"], 0)
+        self.assertEqual(at_ten["illustratively_fee_positive_samples"], 1)
+        self.assertEqual(at_ten["candidates"][0]["illustrative_net_usd"], .02)
+        self.assertFalse(at_ten["historical_orderbook_depth_verified"])
+
     def test_stale_quote_cannot_match(self):
         data = [quote("L", self.t, .30, .35),
                 quote("H", self.t + 60, .40, .45)]
