@@ -1,6 +1,6 @@
 # Historical arbitrage backtest — October 24, 2026
 
-## Result: no positive after-fee candidate observed
+## Result: no positive after-fee candidate at **one contract pair**
 
 **This was the first successful real-data run.** Run [40133117087](https://github.com/akilatrades/prediction-market-arbitrage-research/actions/runs/40133117087) passed 10 unit tests, imported a read-only copy of archived 2025–26 public Kalshi NBA quotes and compared pairs of same-player nested thresholds.
 
@@ -13,10 +13,10 @@
 | Aligned historical two-contract price comparisons | 597,797 |
 | Pair comparisons without both required historical prices | 622,645 (not imputed) |
 | Positive price inconsistencies *before fees* | 7 player/timestamp observations |
-| Positive **after** illustrative standard taker fees | **0** |
+| Positive **after** illustrative standard taker fees, 1 pair | **0** |\n| Fee-positive at hypothetical 10 pairs per trade | **3** |\n| Fee-positive at hypothetical 100 pairs per trade | **5** |
 | Actual two-leg fills or realized dollar profit measured | **None** |
 
-The seven observed candidate gross price differences were all **1¢ per pair**. Standard separate-leg taker fees made the illustrative net difference **negative 1–3¢ per pair** at a one-contract quantity on each side.
+The seven observed candidate gross price differences were all **1¢ per pair**. Standard separate-leg taker fees made the illustrative net difference **negative 1–3¢ per pair** at a one-contract quantity on each side.\n\n**Size sensitivity:** When fees are rounded per *order*, larger orders can reduce per-contract rounding costs. At hypothetical sizes of 10 pairs, 3/7 candidate timestamps were net-positive (combined **$0.08** across those three). At 100 pairs, 5/7 were net-positive (combined **$1.08** across those five). **These are not executable profits:** the archive contains NO historical order-book sizes, queue data, or proof even a single pair was fillable at these candle closes. These sizes cannot be assumed available; quoting 100 pairs without enough depth could cause large slippage or an unhedged leg.
 
 ### The seven observed price discrepancies
 
@@ -30,7 +30,7 @@ The seven observed candidate gross price differences were all **1¢ per pair**. 
 | NBA rebounds | Apr 30, 2026 | Onyeka Okongwu | 10+ / 12+ | +1¢ | −1¢ |
 | NBA rebounds | May 3, 2026 | Cade Cunningham | 8+ / 10+ | +1¢ | −1¢ |
 
-**No scenario in this sample produces an after-fee positive payoff** even if both legs could have filled at the sampled closing prices.
+**No one-pair scenario in this sample produces an after-fee positive payoff** even if both legs could have filled at the sampled closing prices.
 
 ## What it means and does not mean
 
@@ -42,7 +42,7 @@ The seven observed candidate gross price differences were all **1¢ per pair**. 
 
 ## Decision
 
-**No-go on allocating trading capital to straightforward NBA threshold-ladder taker arbitrage on this evidence.**
+**No-go on allocating trading capital to straightforward NBA threshold-ladder taker arbitrage on this evidence.** Larger-size hypothetical positives are tiny and lack historical depth/fill proof; they do not change the decision.
 
 Research avenues still open:
 1. Broader *logical/combinatorial* relationships across economic, political and other event markets;
@@ -52,4 +52,4 @@ Research avenues still open:
 
 Until live-forward data demonstrate a genuine after-fee opportunity and practical completion of both legs, **do not fund an arbitrage trader**.
 
-The source snapshot is a read-only copy of public Kalshi historical Parquet records from an earlier research archive; all analysis code and workflows are in this independent repository. It does not change or execute any existing trading bot.
+The public Kalshi historical Parquet records are now stored permanently under `data/reference/` **inside this independent repository** (with SHA256 checksums), having been copied once, read-only, from an earlier research archive. Future backtests do not depend on the old repository. The analysis code and workflows are independent. It does not change or execute any existing trading bot.
