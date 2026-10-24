@@ -1,0 +1,46 @@
+name: Historical arbitrage quote research
+on:
+  push:
+    branches: [main]
+    paths:
+      - "arb_research/**"
+      - "tests/**"
+      - ".github/workflows/historical-backtest.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate formulas and safety guardrails
+        run: python -m unittest discover -s tests -v
+      - name: Fetch genuine archived Kalshi prices (public GET only)
+        run: >-
+          python -m arb_research.archive
+          --start 2026-01-01 --end 2026-02-01
+          --max-markets 100 --period 60 --max-pages 8
+          --out data/historical
+      - name: Examine timestamp-matched historical prices and fees
+        run: >-
+          python -m arb_research.screen
+          --input data/historical
+          --contracts 1
+          --output outputs/historical_backtest.json
+      - name: Upload raw audit data and result (never commit to live repo)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-quote-screen
+          path: |
+            data/historical/manifest.json
+            data/historical/markets.jsonl
+            data/historical/quotes.jsonl
+            outputs/historical_backtest.json
+          if-no-files-found: warn
+          retention-days: 14
