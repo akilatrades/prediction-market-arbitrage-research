@@ -1,0 +1,43 @@
+name: One-time public archive import
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/import-public-archive-once.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import public research price records only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/reference
+          SNAPSHOT="c29873bd0caab66ad03e76994d8f661d6e7d65c3"
+          PREFIX="https://raw.githubusercontent.com/akilatrades/sports-market-maker"
+          for SERIES in KXNBAPTS KXNBAREB KXNBAAST KXNBA3PT; do
+            for KIND in markets candles; do
+              FILENAME="${KIND}_${SERIES}.parquet"
+              curl -fSL --retry 3 --retry-delay 2 \
+                "${PREFIX}/${SNAPSHOT}/data/kalshi_history/${FILENAME}" \
+                -o "data/reference/${FILENAME}"
+            done
+          done
+          sha256sum data/reference/*.parquet | tee data/reference/SHA256SUMS.txt
+      - name: Commit snapshot to standalone arbitrage repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reference/
+          if git diff --cached --quiet; then
+            echo "Reference files already imported"
+            exit 0
+          fi
+          git commit -m "Import public Kalshi 2025-26 market archive into independent research"
+          git pull --rebase
+          git push
