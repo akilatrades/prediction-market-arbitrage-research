@@ -75,29 +75,37 @@ def pick_markets():
         ("/historical/markets",{"series_ticker":"KXBTC15M","limit":"1000"}),
         ("/markets",{"series_ticker":"KXBTC15M","limit":"1000","status":"settled"})
     ):
-        try:
-            data=fetch(API+base+"?"+urllib.parse.urlencode(params))
-            m=data.get("markets",[])
-            allm.extend(m)
-            print("MARKET_CATALOG",base,"count",len(m),"sample_keys",list(m[0])[:25] if m else [],flush=True)
-        except Exception as e:
-            print("CATALOG_ERROR",base,str(e),flush=True)
+        cursor=None
+        pages=1 if base.startswith("/historical") else 12
+        for page in range(pages):
+            q=dict(params)
+            if cursor:q["cursor"]=cursor
+            try:
+                data=fetch(API+base+"?"+urllib.parse.urlencode(q),attempts=3)
+                arr=data.get("markets",[])
+                allm.extend(arr)
+                print("MARKET_CATALOG",base,"page",page+1,"n",len(arr),flush=True)
+                cursor=data.get("cursor") or None
+                if not cursor or not arr:break
+            except Exception as e:
+                print("CATALOG_ERROR",base,str(e),flush=True)
+                break
     seen=set();f=[]
     for m in allm:
         k=m.get("ticker")
-        if k and k not in seen and str(m.get("result","")).lower() in ("yes","no") and str(m.get("status","")).lower() in ("settled","finalized",""):
+        if k and k not in seen and str(m.get("result","")).lower() in ("yes","no"):
             seen.add(k);f.append(m)
     def mt(m):return ts(m.get("open_time")) or (ts(m.get("close_time")) or 0)-900
     f.sort(key=mt)
-    f=[m for m in f if 1780272000<=mt(m)<1790812800] # June to Sep 2026
-    # Select markets across observed history, avoiding an arbitrarily contiguous era.
-    # Restrict to Aug-Sep because prior spot data is loaded for these months.
-    f=[m for m in f if 1785542400<=mt(m)<1790812800]
+    start=ts(os.environ.get("KALSHI_SAMPLE_START","2026-09-01T00:00:00Z"))
+    end=ts(os.environ.get("KALSHI_SAMPLE_END","2026-10-01T00:00:00Z"))
+    f=[m for m in f if start<=mt(m)<end]
     if len(f)>NMARKETS:
         ix=[int(i*(len(f)-1)/(NMARKETS-1)) for i in range(NMARKETS)]
         f=[f[i] for i in sorted(set(ix))]
     print("CATALOG_SELECTED",len(f),"from",mt(f[0]) if f else 0,"to",mt(f[-1]) if f else 0,flush=True)
     return f
+
 def get_market(m):
     ticker=m["ticker"]
     t0=ts(m.get("open_time")) or ((ts(m.get("close_time")) or 0)-900)
@@ -179,7 +187,7 @@ def main():
             if exit8 is not None:
                 out_px=exit8[1] if yes else 1-exit8[2]
                 stats[k]["early_exit_8m"].append({"correct":win,"entry":px,"net":out_px-px-fee(px)-fee(out_px)})
-    summary={"source":"Kalshi public 1-minute YES bid and ask historical candles","source_query":"KXBTC15M Aug-Sep 2026",
+    summary={"source":"Kalshi public 1-minute YES bid and ask historical candles","source_query":"KXBTC15M "+os.environ.get("KALSHI_SAMPLE_START","2026-09-01")+" to "+os.environ.get("KALSHI_SAMPLE_END","2026-10-01"),
         "selected_markets":len(markets),"valid_market_candles":len(result),
         "errors_first_10":errors[:10],"skipped":skip,
         "limitations":"Minute-end quote approximations: there is NO historical depth or precise actual executed ask/bid; NO ask inferred as 1-YES bid; prior Binance spot candle timestamps aligned but exact Kalshi reference differs. Kalshi single-contract fee rounded up 1c. No maker fills validated.",
