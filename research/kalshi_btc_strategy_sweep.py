@@ -32,7 +32,7 @@ def objnum(v):
 
 def candle_num(o,key):
     if not isinstance(o,dict):return None
-    return objnum(o.get(key))
+    return objnum(o.get(key) if o.get(key) is not None else o.get(key+"_dollars"))
 def ts(s):
     if s is None:return None
     if isinstance(s,(int,float)):return int(s)
@@ -187,6 +187,8 @@ def main():
             if exit8 is not None:
                 out_px=exit8[1] if yes else 1-exit8[2]
                 stats[k]["early_exit_8m"].append({"correct":win,"entry":px,"net":out_px-px-fee(px)-fee(out_px)})
+    if all(len(g["settlement"])==0 for g in stats.values()):
+        raise RuntimeError("Market candles fetched but no eligible quote trades. Validate API candle schema and sample coverage.")
     summary={"source":"Kalshi public 1-minute YES bid and ask historical candles","source_query":"KXBTC15M "+os.environ.get("KALSHI_SAMPLE_START","2026-09-01")+" to "+os.environ.get("KALSHI_SAMPLE_END","2026-10-01"),
         "selected_markets":len(markets),"valid_market_candles":len(result),
         "errors_first_10":errors[:10],"skipped":skip,
