@@ -4,7 +4,7 @@ Research completed 2026-10-24 (UTC workflow runs 2026-10-25). Read-only; no mone
 
 ## Bottom line
 
-A broad **predefined strategy family sweep**, not an exhaustive search of all theoretically possible strategies. Includes Bitcoin reversal/momentum, z-score thresholds, RSI, volatility spikes, quote momentum/reversion, imbalance and estimated fair-value dislocations. The largest public matched historical Polymarket YES/NO book sample found **no convincingly robust, net-profitable strategy**: modest apparent positive results were small, unstable across time, or relied on a *proxy* BTC opening price instead of the actual oracle. A smaller Kalshi sample had promising reversal results, but its highest return came from **only 36 observations**, with possible sampling and multiple-comparison bias; a later calendar holdout should be evaluated separately.
+A broad **predefined strategy family sweep**, not an exhaustive search of all theoretically possible strategies. Includes Bitcoin reversal/momentum, z-score thresholds, RSI, volatility spikes, quote momentum/reversion, imbalance and estimated fair-value dislocations. The largest public matched historical Polymarket YES/NO book sample found **no convincingly robust, net-profitable strategy**: modest apparent positive results were small, unstable across time, or relied on a *proxy* BTC opening price instead of the actual oracle. A smaller Kalshi August sample showed promising reversal results, but a **separate September sample did not reproduce the apparent z-score ≥2.0 advantage**. The August +$5.31 on 36 signals turned into September −$1.85 on 32 signals; the combined signal remained positive by only +$0.83 on 45 trades. No funding justified.
 
 ## Data and methodology
 
@@ -66,6 +66,29 @@ The 5-minute early-exit variant was negative for every signal, including the few
 
 **Interpretation:** The short Kalshi sample suggests some directional reversion in BTC, but only 36 trades made the z2 headline. The exploratory samples are not an adequately powered, independently chosen prospective strategy. The market maker / live fill experience from other repositories is *not* evidence these historical quote signals can fill profitably.
 
+## Kalshi September independent calendar validation
+
+- September 1–30 2026: **320 selected settled markets, 267 with valid historical 1-minute quotes, 53 without usable candle retrieval (mostly HTTP 429 rate limits)**. All 267 successfully parsed after accounting for newer candle fields named `close_dollars` rather than `close`.
+- No zero-trade/blank runner is counted: an intermediate discovery run falsely reported workflow success but had zero eligible quotes because of this API field mismatch; parser was fixed and run re-executed successfully.
+- Results: [Kalshi September JSON](../results/kalshi_btc_september_holdout_2026.json), [successful September run](https://github.com/akilatrades/prediction-market-arbitrage-research/actions/runs/40151004427).
+- This later calendar is a *separate validation slice* for the already-discussed August signals, although sampling and parameter selection mean it is not a prospectively registered trial. Missing quotes and live-vs-historical API heterogeneity remain material data-quality limits.
+
+| Kalshi strategy | August n | August total simulated net | September n | September total simulated net |
+|---|---:|---:|---:|---:|
+| Fade previous BTC bar | 271 | -$1.32 | 267 | -$16.89 |
+| Fade 2 same-direction bars | 147 | +$2.94 | 128 | -$11.88 |
+| Follow 2 same-direction bars | 147 | -$10.09 | 128 | +$5.67 |
+| Fade z-score >=1.5 | 82 | +$0.57 | 78 | -$2.37 |
+| Fade z-score >=2.0 | 36 | +$5.31 | 32 | -$1.85 |
+| Two bars + z-score >=1.5 fade | 56 | +$3.91 | 45 | +$0.83 |
+| Follow z-score >=1.5 | 82 | -$4.58 | 78 | -$1.34 |
+| Fade YES price ≥6c move | 184 | -$7.66 | 174 | -$0.92 |
+| Follow YES price ≥6c move | 184 | -$1.31 | 174 | -$7.43 |
+
+September extreme z-score rule achieved **16/32 = 50%** correct, vs **24/36 = 66.7%** in August. The combined rule made **27/45 = 60%** correct with mean entry **56.26¢** and a net modeled **+$0.83** total. This is **1.85¢ per selected contract** in the small September sample, not a proven large-scale edge; 8-minute cashout for the same 45 signals yielded **−$1.60** after fee and bid.
+
+**Conclusion strengthened:** systematic BTC mean reversion does NOT show a reliable cross-period net edge on Kalshi either. A higher hit rate cannot compensate for an expensive entry/exit. Contract-price trend/reversion, with >60% hits on the winning-side side, also failed fee-aware expected value.
+
 ## What was NOT proven or tested
 
 - Identical-timestamp Kalshi vs Polymarket cross-venue BTC YES/NO arbitrage: available tested datasets use different dates. Do not compare their prices across dates as a hedge.
@@ -77,6 +100,6 @@ The 5-minute early-exit variant was negative for every signal, including the few
 
 ## Decision
 
-**No go for funding** based on these available tests. Further tests should prioritize a genuinely unseen later Kalshi period, correct venue oracle-derived fair value, and paired timestamp execution economics. Simple fixed technical signals alone are unlikely to yield serious-money returns on these small samples. Different markets, spreads, and fee structures can change the result; this study does not prove no profitable strategy exists.
+**No go for funding** based on these available tests. Further tests should prioritize a larger locked-rule prospective sample, correct venue oracle-derived fair value, and paired timestamp execution economics. Simple fixed technical signals alone are unlikely to yield serious-money returns on these small samples. Different markets, spreads, and fee structures can change the result; this study does not prove no profitable strategy exists.
 
 All changes are in the independent research repo, not the live market-making bot.
