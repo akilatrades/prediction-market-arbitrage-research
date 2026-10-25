@@ -88,7 +88,6 @@ def main():
         spot_prior=(prevbar["close"]>prevbar["open"])
         bar=bars.get(t0)
         spot_actual=("Up" if bar["close"]>bar["open"] else "Down") if bar else None
-        record=dict(id=m["market_id"],start=t0,quote_t=t,quote_lag_seconds:0) if False else {}
         record=dict(id=m["market_id"],start=t0,quote_t=t,quote_lag_seconds=(t-t0)/1000,
                     yes_bid=b,yes_ask=a,spread=a-b,
                     outcome=m["winning_outcome"],spot_target=spot_actual,
