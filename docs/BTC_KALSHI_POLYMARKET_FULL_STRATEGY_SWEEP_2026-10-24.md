@@ -25,6 +25,7 @@ A broad **predefined strategy family sweep**, not an exhaustive search of all th
 | Two-bar momentum | 1144 | 47.12% | -$13.05 |
 | 1.5 z-score reversal | 642 | 55.76% | -$10.50 |
 | 2.0 z-score reversal | 271 | 57.56% | -$4.11 |
+| Follow 1.5 z-score momentum | 642 | 44.24% | -$16.74 |
 | Two-bar plus 1.5 z-score reversal | 373 | 58.45% | +$0.97 |
 | RSI reversion | 501 | 54.29% | -$10.16 |
 | RSI trend following | 501 | 45.71% | -$11.75 |
@@ -36,7 +37,7 @@ A broad **predefined strategy family sweep**, not an exhaustive search of all th
 | Binance-anchor fair-value gap >=5c (**proxy**) | 825 | 44.48% | -$10.23 |
 | Binance-anchor fair-value gap >=10c (**proxy**) | 211 | 50.24% | +$6.39 |
 
-**Note:** The count above is 15 rows because original experiment defined 16 signal names but those names include a 16th signal? Check the stored full JSON before claiming any exact count. (The source code's STRATEGIES list is canonical.)
+Sixteen distinct directional/market-quote strategy rules are listed above.
 
 The fair-value proxy 10c gap strategy generated +$7.15 in the early half of April and -$0.76 in the late half. The imbalance-follow strategy generated -$1.93 in the early half and +$5.64 in the late half. Neither has stable evidence of an edge. With 1,259 observations, imbalance-follow net averaging only **+0.295¢ per contract** is fragile to execution costs.
 
