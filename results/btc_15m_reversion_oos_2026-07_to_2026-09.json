@@ -1,0 +1,451 @@
+{
+  "conditional_probability_model": {
+    "baseline_brier": 0.25,
+    "brier": 0.249059,
+    "bucket_estimates": {
+      "00_hi": {
+        "observations": 246,
+        "p_up": 0.53179
+      },
+      "00_lo": {
+        "observations": 5502,
+        "p_up": 0.5548
+      },
+      "00_mid": {
+        "observations": 6944,
+        "p_up": 0.51079
+      },
+      "01_hi": {
+        "observations": 2616,
+        "p_up": 0.45987
+      },
+      "01_lo": {
+        "observations": 1955,
+        "p_up": 0.52895
+      },
+      "01_mid": {
+        "observations": 9047,
+        "p_up": 0.49667
+      },
+      "10_hi": {
+        "observations": 1936,
+        "p_up": 0.48576
+      },
+      "10_lo": {
+        "observations": 2610,
+        "p_up": 0.52878
+      },
+      "10_mid": {
+        "observations": 9073,
+        "p_up": 0.50223
+      },
+      "11_hi": {
+        "observations": 5395,
+        "p_up": 0.43985
+      },
+      "11_lo": {
+        "observations": 229,
+        "p_up": 0.4924
+      },
+      "11_mid": {
+        "observations": 6847,
+        "p_up": 0.4769
+      }
+    },
+    "selected_over_55pct": {
+      "break_even_max_entry_before_fees": 0.5578,
+      "fixed_50c_fee_0c_net_per_contract": 0.0578,
+      "fixed_50c_fee_1c_net_per_contract": 0.0478,
+      "fixed_53c_fee_1c_net_per_contract": 0.0178,
+      "fixed_55c_fee_1c_net_per_contract": -0.0022,
+      "hit_rate": 0.5578,
+      "trades": 1782,
+      "wilson_95": [
+        0.5346,
+        0.5807
+      ],
+      "wins": 994
+    },
+    "test_rows": 8832,
+    "train_rows": 52400
+  },
+  "data_source": "Binance BTCUSDT SPOT OHLCV 15m",
+  "gap_excluded_windows": 0,
+  "out_of_sample": "2026-07-01 through 2026-09-30 UTC",
+  "spot_candles": 61248,
+  "strategies": {
+    "reverse_one": {
+      "test": {
+        "break_even_max_entry_before_fees": 0.513361,
+        "fixed_50c_fee_0c_net_per_contract": 0.013361,
+        "fixed_50c_fee_1c_net_per_contract": 0.003361,
+        "fixed_53c_fee_1c_net_per_contract": -0.026639,
+        "fixed_55c_fee_1c_net_per_contract": -0.046639,
+        "hit_rate": 0.513361,
+        "trades": 8832,
+        "wilson_95": [
+          0.5029,
+          0.5238
+        ],
+        "wins": 4534
+      },
+      "test_by_month": {
+        "2026-07": {
+          "break_even_max_entry_before_fees": 0.517809,
+          "fixed_50c_fee_0c_net_per_contract": 0.017809,
+          "fixed_50c_fee_1c_net_per_contract": 0.007809,
+          "fixed_53c_fee_1c_net_per_contract": -0.022191,
+          "fixed_55c_fee_1c_net_per_contract": -0.042191,
+          "hit_rate": 0.517809,
+          "trades": 2976,
+          "wilson_95": [
+            0.4998,
+            0.5357
+          ],
+          "wins": 1541
+        },
+        "2026-08": {
+          "break_even_max_entry_before_fees": 0.509745,
+          "fixed_50c_fee_0c_net_per_contract": 0.009745,
+          "fixed_50c_fee_1c_net_per_contract": -0.000255,
+          "fixed_53c_fee_1c_net_per_contract": -0.030255,
+          "fixed_55c_fee_1c_net_per_contract": -0.050255,
+          "hit_rate": 0.509745,
+          "trades": 2976,
+          "wilson_95": [
+            0.4918,
+            0.5277
+          ],
+          "wins": 1517
+        },
+        "2026-09": {
+          "break_even_max_entry_before_fees": 0.5125,
+          "fixed_50c_fee_0c_net_per_contract": 0.0125,
+          "fixed_50c_fee_1c_net_per_contract": 0.0025,
+          "fixed_53c_fee_1c_net_per_contract": -0.0275,
+          "fixed_55c_fee_1c_net_per_contract": -0.0475,
+          "hit_rate": 0.5125,
+          "trades": 2880,
+          "wilson_95": [
+            0.4942,
+            0.5307
+          ],
+          "wins": 1476
+        }
+      },
+      "training": {
+        "break_even_max_entry_before_fees": 0.51979,
+        "fixed_50c_fee_0c_net_per_contract": 0.01979,
+        "fixed_50c_fee_1c_net_per_contract": 0.00979,
+        "fixed_53c_fee_1c_net_per_contract": -0.02021,
+        "fixed_55c_fee_1c_net_per_contract": -0.04021,
+        "hit_rate": 0.51979,
+        "trades": 52400,
+        "wilson_95": [
+          0.5155,
+          0.5241
+        ],
+        "wins": 27237
+      }
+    },
+    "reverse_two": {
+      "test": {
+        "break_even_max_entry_before_fees": 0.5349,
+        "fixed_50c_fee_0c_net_per_contract": 0.0349,
+        "fixed_50c_fee_1c_net_per_contract": 0.0249,
+        "fixed_53c_fee_1c_net_per_contract": -0.0051,
+        "fixed_55c_fee_1c_net_per_contract": -0.0251,
+        "hit_rate": 0.5349,
+        "trades": 4298,
+        "wilson_95": [
+          0.52,
+          0.5498
+        ],
+        "wins": 2299
+      },
+      "test_by_month": {
+        "2026-07": {
+          "break_even_max_entry_before_fees": 0.534868,
+          "fixed_50c_fee_0c_net_per_contract": 0.034868,
+          "fixed_50c_fee_1c_net_per_contract": 0.024868,
+          "fixed_53c_fee_1c_net_per_contract": -0.005132,
+          "fixed_55c_fee_1c_net_per_contract": -0.025132,
+          "hit_rate": 0.534868,
+          "trades": 1434,
+          "wilson_95": [
+            0.509,
+            0.5606
+          ],
+          "wins": 767
+        },
+        "2026-08": {
+          "break_even_max_entry_before_fees": 0.529452,
+          "fixed_50c_fee_0c_net_per_contract": 0.029452,
+          "fixed_50c_fee_1c_net_per_contract": 0.019452,
+          "fixed_53c_fee_1c_net_per_contract": -0.010548,
+          "fixed_55c_fee_1c_net_per_contract": -0.030548,
+          "hit_rate": 0.529452,
+          "trades": 1460,
+          "wilson_95": [
+            0.5038,
+            0.5549
+          ],
+          "wins": 773
+        },
+        "2026-09": {
+          "break_even_max_entry_before_fees": 0.540598,
+          "fixed_50c_fee_0c_net_per_contract": 0.040598,
+          "fixed_50c_fee_1c_net_per_contract": 0.030598,
+          "fixed_53c_fee_1c_net_per_contract": 0.000598,
+          "fixed_55c_fee_1c_net_per_contract": -0.019402,
+          "hit_rate": 0.540598,
+          "trades": 1404,
+          "wilson_95": [
+            0.5145,
+            0.5665
+          ],
+          "wins": 759
+        }
+      },
+      "training": {
+        "break_even_max_entry_before_fees": 0.53527,
+        "fixed_50c_fee_0c_net_per_contract": 0.03527,
+        "fixed_50c_fee_1c_net_per_contract": 0.02527,
+        "fixed_53c_fee_1c_net_per_contract": -0.00473,
+        "fixed_55c_fee_1c_net_per_contract": -0.02473,
+        "hit_rate": 0.53527,
+        "trades": 25163,
+        "wilson_95": [
+          0.5291,
+          0.5414
+        ],
+        "wins": 13469
+      }
+    },
+    "two_and_z15": {
+      "test": {
+        "break_even_max_entry_before_fees": 0.558967,
+        "fixed_50c_fee_0c_net_per_contract": 0.058967,
+        "fixed_50c_fee_1c_net_per_contract": 0.048967,
+        "fixed_53c_fee_1c_net_per_contract": 0.018967,
+        "fixed_55c_fee_1c_net_per_contract": -0.001033,
+        "hit_rate": 0.558967,
+        "trades": 1433,
+        "wilson_95": [
+          0.5331,
+          0.5845
+        ],
+        "wins": 801
+      },
+      "test_by_month": {
+        "2026-07": {
+          "break_even_max_entry_before_fees": 0.576419,
+          "fixed_50c_fee_0c_net_per_contract": 0.076419,
+          "fixed_50c_fee_1c_net_per_contract": 0.066419,
+          "fixed_53c_fee_1c_net_per_contract": 0.036419,
+          "fixed_55c_fee_1c_net_per_contract": 0.016419,
+          "hit_rate": 0.576419,
+          "trades": 458,
+          "wilson_95": [
+            0.5307,
+            0.6209
+          ],
+          "wins": 264
+        },
+        "2026-08": {
+          "break_even_max_entry_before_fees": 0.548708,
+          "fixed_50c_fee_0c_net_per_contract": 0.048708,
+          "fixed_50c_fee_1c_net_per_contract": 0.038708,
+          "fixed_53c_fee_1c_net_per_contract": 0.008708,
+          "fixed_55c_fee_1c_net_per_contract": -0.011292,
+          "hit_rate": 0.548708,
+          "trades": 503,
+          "wilson_95": [
+            0.505,
+            0.5917
+          ],
+          "wins": 276
+        },
+        "2026-09": {
+          "break_even_max_entry_before_fees": 0.552966,
+          "fixed_50c_fee_0c_net_per_contract": 0.052966,
+          "fixed_50c_fee_1c_net_per_contract": 0.042966,
+          "fixed_53c_fee_1c_net_per_contract": 0.012966,
+          "fixed_55c_fee_1c_net_per_contract": -0.007034,
+          "hit_rate": 0.552966,
+          "trades": 472,
+          "wilson_95": [
+            0.5079,
+            0.5972
+          ],
+          "wins": 261
+        }
+      },
+      "training": {
+        "break_even_max_entry_before_fees": 0.565514,
+        "fixed_50c_fee_0c_net_per_contract": 0.065514,
+        "fixed_50c_fee_1c_net_per_contract": 0.055514,
+        "fixed_53c_fee_1c_net_per_contract": 0.025514,
+        "fixed_55c_fee_1c_net_per_contract": 0.005514,
+        "hit_rate": 0.565514,
+        "trades": 8647,
+        "wilson_95": [
+          0.555,
+          0.5759
+        ],
+        "wins": 4890
+      }
+    },
+    "z15": {
+      "test": {
+        "break_even_max_entry_before_fees": 0.548978,
+        "fixed_50c_fee_0c_net_per_contract": 0.048978,
+        "fixed_50c_fee_1c_net_per_contract": 0.038978,
+        "fixed_53c_fee_1c_net_per_contract": 0.008978,
+        "fixed_55c_fee_1c_net_per_contract": -0.011022,
+        "hit_rate": 0.548978,
+        "trades": 2348,
+        "wilson_95": [
+          0.5288,
+          0.569
+        ],
+        "wins": 1289
+      },
+      "test_by_month": {
+        "2026-07": {
+          "break_even_max_entry_before_fees": 0.56242,
+          "fixed_50c_fee_0c_net_per_contract": 0.06242,
+          "fixed_50c_fee_1c_net_per_contract": 0.05242,
+          "fixed_53c_fee_1c_net_per_contract": 0.02242,
+          "fixed_55c_fee_1c_net_per_contract": 0.00242,
+          "hit_rate": 0.56242,
+          "trades": 777,
+          "wilson_95": [
+            0.5273,
+            0.5969
+          ],
+          "wins": 437
+        },
+        "2026-08": {
+          "break_even_max_entry_before_fees": 0.530284,
+          "fixed_50c_fee_0c_net_per_contract": 0.030284,
+          "fixed_50c_fee_1c_net_per_contract": 0.020284,
+          "fixed_53c_fee_1c_net_per_contract": -0.009716,
+          "fixed_55c_fee_1c_net_per_contract": -0.029716,
+          "hit_rate": 0.530284,
+          "trades": 809,
+          "wilson_95": [
+            0.4958,
+            0.5645
+          ],
+          "wins": 429
+        },
+        "2026-09": {
+          "break_even_max_entry_before_fees": 0.555118,
+          "fixed_50c_fee_0c_net_per_contract": 0.055118,
+          "fixed_50c_fee_1c_net_per_contract": 0.045118,
+          "fixed_53c_fee_1c_net_per_contract": 0.015118,
+          "fixed_55c_fee_1c_net_per_contract": -0.004882,
+          "hit_rate": 0.555118,
+          "trades": 762,
+          "wilson_95": [
+            0.5196,
+            0.59
+          ],
+          "wins": 423
+        }
+      },
+      "training": {
+        "break_even_max_entry_before_fees": 0.553291,
+        "fixed_50c_fee_0c_net_per_contract": 0.053291,
+        "fixed_50c_fee_1c_net_per_contract": 0.043291,
+        "fixed_53c_fee_1c_net_per_contract": 0.013291,
+        "fixed_55c_fee_1c_net_per_contract": -0.006709,
+        "hit_rate": 0.553291,
+        "trades": 14327,
+        "wilson_95": [
+          0.5451,
+          0.5614
+        ],
+        "wins": 7927
+      }
+    },
+    "z2": {
+      "test": {
+        "break_even_max_entry_before_fees": 0.554,
+        "fixed_50c_fee_0c_net_per_contract": 0.054,
+        "fixed_50c_fee_1c_net_per_contract": 0.044,
+        "fixed_53c_fee_1c_net_per_contract": 0.014,
+        "fixed_55c_fee_1c_net_per_contract": -0.006,
+        "hit_rate": 0.554,
+        "trades": 1000,
+        "wilson_95": [
+          0.523,
+          0.5845
+        ],
+        "wins": 554
+      },
+      "test_by_month": {
+        "2026-07": {
+          "break_even_max_entry_before_fees": 0.54386,
+          "fixed_50c_fee_0c_net_per_contract": 0.04386,
+          "fixed_50c_fee_1c_net_per_contract": 0.03386,
+          "fixed_53c_fee_1c_net_per_contract": 0.00386,
+          "fixed_55c_fee_1c_net_per_contract": -0.01614,
+          "hit_rate": 0.54386,
+          "trades": 342,
+          "wilson_95": [
+            0.4909,
+            0.5959
+          ],
+          "wins": 186
+        },
+        "2026-08": {
+          "break_even_max_entry_before_fees": 0.567568,
+          "fixed_50c_fee_0c_net_per_contract": 0.067568,
+          "fixed_50c_fee_1c_net_per_contract": 0.057568,
+          "fixed_53c_fee_1c_net_per_contract": 0.027568,
+          "fixed_55c_fee_1c_net_per_contract": 0.007568,
+          "hit_rate": 0.567568,
+          "trades": 333,
+          "wilson_95": [
+            0.5139,
+            0.6197
+          ],
+          "wins": 189
+        },
+        "2026-09": {
+          "break_even_max_entry_before_fees": 0.550769,
+          "fixed_50c_fee_0c_net_per_contract": 0.050769,
+          "fixed_50c_fee_1c_net_per_contract": 0.040769,
+          "fixed_53c_fee_1c_net_per_contract": 0.010769,
+          "fixed_55c_fee_1c_net_per_contract": -0.009231,
+          "hit_rate": 0.550769,
+          "trades": 325,
+          "wilson_95": [
+            0.4964,
+            0.6039
+          ],
+          "wins": 179
+        }
+      },
+      "training": {
+        "break_even_max_entry_before_fees": 0.573438,
+        "fixed_50c_fee_0c_net_per_contract": 0.073438,
+        "fixed_50c_fee_1c_net_per_contract": 0.063438,
+        "fixed_53c_fee_1c_net_per_contract": 0.033438,
+        "fixed_55c_fee_1c_net_per_contract": 0.013437,
+        "hit_rate": 0.573438,
+        "trades": 5760,
+        "wilson_95": [
+          0.5606,
+          0.5862
+        ],
+        "wins": 3303
+      }
+    }
+  },
+  "test_windows": 8832,
+  "train_before": "2026-07-01T00:00:00Z",
+  "train_windows": 52400
+}
