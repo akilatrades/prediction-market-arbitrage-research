@@ -1,0 +1,31 @@
+name: Polymarket Bitcoin broad strategy sweep
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/polymarket_btc_strategy_sweep.py"
+      - ".github/workflows/poly-btc-full-sweep.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile
+        run: python -m py_compile research/polymarket_btc_strategy_sweep.py
+      - name: Backtest 16 diverse Bitcoin signals, exit and settlement outcomes
+        run: python -u research/polymarket_btc_strategy_sweep.py
+      - name: Preserve results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: polymarket-btc-full-sweep
+          path: outputs/polymarket_btc_full_strategy_sweep.json
+          if-no-files-found: warn
+          retention-days: 30
