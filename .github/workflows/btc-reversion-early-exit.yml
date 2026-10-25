@@ -1,0 +1,32 @@
+name: BTC contract mean reversion early exit
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/btc_contract_reversion_early_exit.py"
+      - "research/btc_multiday_orderbook_backtest.py"
+      - ".github/workflows/btc-reversion-early-exit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  early-exit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile read-only research
+        run: python -m py_compile research/btc_contract_reversion_early_exit.py
+      - name: Backtest take-profit, stop, and time exit
+        run: python -u research/btc_contract_reversion_early_exit.py
+      - name: Preserve results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: btc-early-exit-historical-research
+          path: outputs/btc_mean_reversion_early_exit_26day.json
+          if-no-files-found: warn
+          retention-days: 30
