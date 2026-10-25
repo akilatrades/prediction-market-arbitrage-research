@@ -1,0 +1,266 @@
+{
+  "source_run": "https://github.com/akilatrades/prediction-market-arbitrage-research/actions/runs/40151004427",
+  "source": "Kalshi public 1-minute YES bid and ask historical candles",
+  "source_query": "KXBTC15M 2026-09-01 to 2026-10-01",
+  "selected_markets": 320,
+  "valid_market_candles": 267,
+  "errors_first_10": [
+    {
+      "ticker": "KXBTC15M-26SEP011145-45",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP020115-15",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP021000-00",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP022115-15",
+      "info": [
+        "HTTP Error 404: Not Found",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP030145-45",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP041515-15",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP041730-30",
+      "info": [
+        "HTTP Error 429: Too Many Requests",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP050445-45",
+      "info": [
+        "HTTP Error 404: Not Found",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP050700-00",
+      "info": [
+        "HTTP Error 404: Not Found",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    },
+    {
+      "ticker": "KXBTC15M-26SEP070330-30",
+      "info": [
+        "HTTP Error 404: Not Found",
+        "HTTP Error 429: Too Many Requests"
+      ]
+    }
+  ],
+  "skipped": {
+    "spot": 0,
+    "quotes": 0
+  },
+  "limitations": "Minute-end quote approximations: there is NO historical depth or precise actual executed ask/bid; NO ask inferred as 1-YES bid; prior Binance spot candle timestamps aligned but exact Kalshi reference differs. Kalshi single-contract fee rounded up 1c. No maker fills validated.",
+  "strategies": {
+    "reverse_one": {
+      "settlement": {
+        "n": 267,
+        "correct": 123,
+        "winrate": 0.4607,
+        "avg_entry": 0.5046,
+        "net_per_share": -0.06326,
+        "sum_net_one_share": -16.89,
+        "positive_net_fraction": 0.4607
+      },
+      "early_exit_8m": {
+        "n": 262,
+        "correct": 121,
+        "winrate": 0.4618,
+        "avg_entry": 0.5064,
+        "net_per_share": -0.07412,
+        "sum_net_one_share": -19.42,
+        "positive_net_fraction": 0.3855
+      }
+    },
+    "reverse_two": {
+      "settlement": {
+        "n": 128,
+        "correct": 57,
+        "winrate": 0.4453,
+        "avg_entry": 0.5189,
+        "net_per_share": -0.0928,
+        "sum_net_one_share": -11.878,
+        "positive_net_fraction": 0.4453
+      },
+      "early_exit_8m": {
+        "n": 127,
+        "correct": 57,
+        "winrate": 0.4488,
+        "avg_entry": 0.5221,
+        "net_per_share": -0.05961,
+        "sum_net_one_share": -7.57,
+        "positive_net_fraction": 0.4094
+      }
+    },
+    "trend_two": {
+      "settlement": {
+        "n": 128,
+        "correct": 71,
+        "winrate": 0.5547,
+        "avg_entry": 0.4911,
+        "net_per_share": 0.04426,
+        "sum_net_one_share": 5.665,
+        "positive_net_fraction": 0.5547
+      },
+      "early_exit_8m": {
+        "n": 127,
+        "correct": 70,
+        "winrate": 0.5512,
+        "avg_entry": 0.4878,
+        "net_per_share": -0.02538,
+        "sum_net_one_share": -3.223,
+        "positive_net_fraction": 0.4882
+      }
+    },
+    "zfade_15": {
+      "settlement": {
+        "n": 78,
+        "correct": 41,
+        "winrate": 0.5256,
+        "avg_entry": 0.5371,
+        "net_per_share": -0.03032,
+        "sum_net_one_share": -2.365,
+        "positive_net_fraction": 0.5256
+      },
+      "early_exit_8m": {
+        "n": 77,
+        "correct": 41,
+        "winrate": 0.5325,
+        "avg_entry": 0.541,
+        "net_per_share": -0.06919,
+        "sum_net_one_share": -5.328,
+        "positive_net_fraction": 0.4805
+      }
+    },
+    "zfade_20": {
+      "settlement": {
+        "n": 32,
+        "correct": 16,
+        "winrate": 0.5,
+        "avg_entry": 0.5387,
+        "net_per_share": -0.05781,
+        "sum_net_one_share": -1.85,
+        "positive_net_fraction": 0.5
+      },
+      "early_exit_8m": {
+        "n": 32,
+        "correct": 16,
+        "winrate": 0.5,
+        "avg_entry": 0.5387,
+        "net_per_share": -0.11781,
+        "sum_net_one_share": -3.77,
+        "positive_net_fraction": 0.4062
+      }
+    },
+    "combined": {
+      "settlement": {
+        "n": 45,
+        "correct": 27,
+        "winrate": 0.6,
+        "avg_entry": 0.5626,
+        "net_per_share": 0.01849,
+        "sum_net_one_share": 0.832,
+        "positive_net_fraction": 0.6
+      },
+      "early_exit_8m": {
+        "n": 45,
+        "correct": 27,
+        "winrate": 0.6,
+        "avg_entry": 0.5626,
+        "net_per_share": -0.03558,
+        "sum_net_one_share": -1.601,
+        "positive_net_fraction": 0.5333
+      }
+    },
+    "ztrend_15": {
+      "settlement": {
+        "n": 78,
+        "correct": 37,
+        "winrate": 0.4744,
+        "avg_entry": 0.4727,
+        "net_per_share": -0.01717,
+        "sum_net_one_share": -1.339,
+        "positive_net_fraction": 0.4744
+      },
+      "early_exit_8m": {
+        "n": 77,
+        "correct": 36,
+        "winrate": 0.4675,
+        "avg_entry": 0.4688,
+        "net_per_share": -0.0146,
+        "sum_net_one_share": -1.124,
+        "positive_net_fraction": 0.4805
+      }
+    },
+    "contract_fade": {
+      "settlement": {
+        "n": 174,
+        "correct": 63,
+        "winrate": 0.3621,
+        "avg_entry": 0.3482,
+        "net_per_share": -0.0053,
+        "sum_net_one_share": -0.922,
+        "positive_net_fraction": 0.3621
+      },
+      "early_exit_8m": {
+        "n": 169,
+        "correct": 63,
+        "winrate": 0.3728,
+        "avg_entry": 0.354,
+        "net_per_share": -0.06206,
+        "sum_net_one_share": -10.488,
+        "positive_net_fraction": 0.3077
+      }
+    },
+    "contract_follow": {
+      "settlement": {
+        "n": 174,
+        "correct": 111,
+        "winrate": 0.6379,
+        "avg_entry": 0.6617,
+        "net_per_share": -0.0427,
+        "sum_net_one_share": -7.43,
+        "positive_net_fraction": 0.6379
+      },
+      "early_exit_8m": {
+        "n": 169,
+        "correct": 106,
+        "winrate": 0.6272,
+        "avg_entry": 0.6559,
+        "net_per_share": -0.02083,
+        "sum_net_one_share": -3.521,
+        "positive_net_fraction": 0.6095
+      }
+    }
+  }
+}
