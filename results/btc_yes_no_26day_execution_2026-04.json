@@ -1,0 +1,347 @@
+{
+  "source_commit": "280a29b9b818cc742c096af81c62e4bf899d44dc",
+  "sample": "2026-04-01 through 2026-04-26",
+  "run": "https://github.com/akilatrades/prediction-market-arbitrage-research/actions/runs/40149415308",
+  "readme": "One-share hypothetical executable-quote taker results, not realized P&L. Maker crosses are unverified, NO future-looking input signals.",
+  "rows": 2246174,
+  "windows": 2443,
+  "strategies": {
+    "one_reverse": {
+      "taker_any": {
+        "n": 2433,
+        "correct": 1280,
+        "accuracy": 0.5261,
+        "avg_entry": 0.52395,
+        "avg_net_per_share": -0.01442,
+        "net_one_share_total": -35.07427,
+        "max_sequential_drawdown": 45.32006,
+        "ask_depth_ge_10": 2349
+      },
+      "taker_max_50": {
+        "n": 1015,
+        "correct": 418,
+        "accuracy": 0.41182,
+        "avg_entry": 0.41945,
+        "avg_net_per_share": -0.02431,
+        "net_one_share_total": -24.6731,
+        "max_sequential_drawdown": 28.65561,
+        "ask_depth_ge_10": 982
+      },
+      "taker_max_54": {
+        "n": 1363,
+        "correct": 600,
+        "accuracy": 0.44021,
+        "avg_entry": 0.44646,
+        "avg_net_per_share": -0.02313,
+        "net_one_share_total": -31.52442,
+        "max_sequential_drawdown": 38.31741,
+        "ask_depth_ge_10": 1321
+      },
+      "taker_max_58": {
+        "n": 1713,
+        "correct": 808,
+        "accuracy": 0.47169,
+        "avg_entry": 0.47053,
+        "avg_net_per_share": -0.01579,
+        "net_one_share_total": -27.04519,
+        "max_sequential_drawdown": 38.30512,
+        "ask_depth_ge_10": 1657
+      },
+      "maker_touch_unverified": {
+        "n": 2178,
+        "correct": 1071,
+        "accuracy": 0.49174,
+        "avg_entry": 0.51089,
+        "avg_net_per_share": -0.01915,
+        "net_one_share_total": -41.71,
+        "max_sequential_drawdown": 54.68,
+        "ask_depth_ge_10": 0
+      },
+      "maker_through_unverified": {
+        "n": 2103,
+        "correct": 1016,
+        "accuracy": 0.48312,
+        "avg_entry": 0.50991,
+        "avg_net_per_share": -0.0268,
+        "net_one_share_total": -56.35,
+        "max_sequential_drawdown": 64.75,
+        "ask_depth_ge_10": 0
+      },
+      "maker_order_count": 2443
+    },
+    "two_reverse": {
+      "taker_any": {
+        "n": 1140,
+        "correct": 602,
+        "accuracy": 0.52807,
+        "avg_entry": 0.54359,
+        "avg_net_per_share": -0.03204,
+        "net_one_share_total": -36.52024,
+        "max_sequential_drawdown": 43.99374,
+        "ask_depth_ge_10": 1092
+      },
+      "taker_max_50": {
+        "n": 376,
+        "correct": 152,
+        "accuracy": 0.40426,
+        "avg_entry": 0.42319,
+        "avg_net_per_share": -0.03571,
+        "net_one_share_total": -13.42794,
+        "max_sequential_drawdown": 19.29936,
+        "ask_depth_ge_10": 361
+      },
+      "taker_max_54": {
+        "n": 560,
+        "correct": 250,
+        "accuracy": 0.44643,
+        "avg_entry": 0.45668,
+        "avg_net_per_share": -0.02725,
+        "net_one_share_total": -15.25808,
+        "max_sequential_drawdown": 19.2568,
+        "ask_depth_ge_10": 538
+      },
+      "taker_max_58": {
+        "n": 744,
+        "correct": 350,
+        "accuracy": 0.47043,
+        "avg_entry": 0.48356,
+        "avg_net_per_share": -0.03018,
+        "net_one_share_total": -22.45143,
+        "max_sequential_drawdown": 29.82728,
+        "ask_depth_ge_10": 713
+      },
+      "maker_touch_unverified": {
+        "n": 1020,
+        "correct": 503,
+        "accuracy": 0.49314,
+        "avg_entry": 0.53067,
+        "avg_net_per_share": -0.03753,
+        "net_one_share_total": -38.28,
+        "max_sequential_drawdown": 47.7,
+        "ask_depth_ge_10": 0
+      },
+      "maker_through_unverified": {
+        "n": 978,
+        "correct": 474,
+        "accuracy": 0.48466,
+        "avg_entry": 0.52955,
+        "avg_net_per_share": -0.04489,
+        "net_one_share_total": -43.9,
+        "max_sequential_drawdown": 50.9,
+        "ask_depth_ge_10": 0
+      },
+      "maker_order_count": 1144
+    },
+    "z15": {
+      "taker_any": {
+        "n": 639,
+        "correct": 355,
+        "accuracy": 0.55556,
+        "avg_entry": 0.55709,
+        "avg_net_per_share": -0.01794,
+        "net_one_share_total": -11.46554,
+        "max_sequential_drawdown": 21.65664,
+        "ask_depth_ge_10": 613
+      },
+      "taker_max_50": {
+        "n": 182,
+        "correct": 70,
+        "accuracy": 0.38462,
+        "avg_entry": 0.42269,
+        "avg_net_per_share": -0.05487,
+        "net_one_share_total": -9.98563,
+        "max_sequential_drawdown": 15.30462,
+        "ask_depth_ge_10": 176
+      },
+      "taker_max_54": {
+        "n": 281,
+        "correct": 117,
+        "accuracy": 0.41637,
+        "avg_entry": 0.45861,
+        "avg_net_per_share": -0.05926,
+        "net_one_share_total": -16.653,
+        "max_sequential_drawdown": 20.41359,
+        "ask_depth_ge_10": 270
+      },
+      "taker_max_58": {
+        "n": 376,
+        "correct": 175,
+        "accuracy": 0.46543,
+        "avg_entry": 0.4859,
+        "avg_net_per_share": -0.03754,
+        "net_one_share_total": -14.11523,
+        "max_sequential_drawdown": 20.70526,
+        "ask_depth_ge_10": 357
+      },
+      "maker_touch_unverified": {
+        "n": 564,
+        "correct": 293,
+        "accuracy": 0.5195,
+        "avg_entry": 0.54454,
+        "avg_net_per_share": -0.02504,
+        "net_one_share_total": -14.12,
+        "max_sequential_drawdown": 22.77,
+        "ask_depth_ge_10": 0
+      },
+      "maker_through_unverified": {
+        "n": 532,
+        "correct": 269,
+        "accuracy": 0.50564,
+        "avg_entry": 0.54194,
+        "avg_net_per_share": -0.0363,
+        "net_one_share_total": -19.31,
+        "max_sequential_drawdown": 25.44,
+        "ask_depth_ge_10": 0
+      },
+      "maker_order_count": 642
+    },
+    "z2": {
+      "taker_any": {
+        "n": 270,
+        "correct": 155,
+        "accuracy": 0.57407,
+        "avg_entry": 0.56978,
+        "avg_net_per_share": -0.01198,
+        "net_one_share_total": -3.23513,
+        "max_sequential_drawdown": 10.16992,
+        "ask_depth_ge_10": 260
+      },
+      "taker_max_50": {
+        "n": 68,
+        "correct": 25,
+        "accuracy": 0.36765,
+        "avg_entry": 0.42441,
+        "avg_net_per_share": -0.07357,
+        "net_one_share_total": -5.00272,
+        "max_sequential_drawdown": 8.31364,
+        "ask_depth_ge_10": 67
+      },
+      "taker_max_54": {
+        "n": 103,
+        "correct": 43,
+        "accuracy": 0.41748,
+        "avg_entry": 0.45913,
+        "avg_net_per_share": -0.05867,
+        "net_one_share_total": -6.0432,
+        "max_sequential_drawdown": 9.37822,
+        "ask_depth_ge_10": 101
+      },
+      "taker_max_58": {
+        "n": 149,
+        "correct": 71,
+        "accuracy": 0.47651,
+        "avg_entry": 0.49201,
+        "avg_net_per_share": -0.03258,
+        "net_one_share_total": -4.85392,
+        "max_sequential_drawdown": 8.79983,
+        "ask_depth_ge_10": 143
+      },
+      "maker_touch_unverified": {
+        "n": 243,
+        "correct": 131,
+        "accuracy": 0.53909,
+        "avg_entry": 0.55461,
+        "avg_net_per_share": -0.01551,
+        "net_one_share_total": -3.77,
+        "max_sequential_drawdown": 10.48,
+        "ask_depth_ge_10": 0
+      },
+      "maker_through_unverified": {
+        "n": 230,
+        "correct": 120,
+        "accuracy": 0.52174,
+        "avg_entry": 0.55017,
+        "avg_net_per_share": -0.02843,
+        "net_one_share_total": -6.54,
+        "max_sequential_drawdown": 11.41,
+        "ask_depth_ge_10": 0
+      },
+      "maker_order_count": 271
+    },
+    "combined": {
+      "taker_any": {
+        "n": 370,
+        "correct": 215,
+        "accuracy": 0.58108,
+        "avg_entry": 0.56568,
+        "avg_net_per_share": -0.00085,
+        "net_one_share_total": -0.31448,
+        "max_sequential_drawdown": 11.6911,
+        "ask_depth_ge_10": 354
+      },
+      "taker_max_50": {
+        "n": 95,
+        "correct": 37,
+        "accuracy": 0.38947,
+        "avg_entry": 0.41516,
+        "avg_net_per_share": -0.04233,
+        "net_one_share_total": -4.02122,
+        "max_sequential_drawdown": 8.07994,
+        "ask_depth_ge_10": 90
+      },
+      "taker_max_54": {
+        "n": 144,
+        "correct": 63,
+        "accuracy": 0.4375,
+        "avg_entry": 0.45243,
+        "avg_net_per_share": -0.03185,
+        "net_one_share_total": -4.58617,
+        "max_sequential_drawdown": 8.49504,
+        "ask_depth_ge_10": 136
+      },
+      "taker_max_58": {
+        "n": 200,
+        "correct": 97,
+        "accuracy": 0.485,
+        "avg_entry": 0.4845,
+        "avg_net_per_share": -0.01649,
+        "net_one_share_total": -3.29815,
+        "max_sequential_drawdown": 11.61316,
+        "ask_depth_ge_10": 188
+      },
+      "maker_touch_unverified": {
+        "n": 328,
+        "correct": 175,
+        "accuracy": 0.53354,
+        "avg_entry": 0.5528,
+        "avg_net_per_share": -0.01927,
+        "net_one_share_total": -6.32,
+        "max_sequential_drawdown": 15.28,
+        "ask_depth_ge_10": 0
+      },
+      "maker_through_unverified": {
+        "n": 312,
+        "correct": 162,
+        "accuracy": 0.51923,
+        "avg_entry": 0.54939,
+        "avg_net_per_share": -0.03016,
+        "net_one_share_total": -9.41,
+        "max_sequential_drawdown": 17.42,
+        "ask_depth_ge_10": 0
+      },
+      "maker_order_count": 373
+    }
+  },
+  "splits": {
+    "early": {
+      "n": 182,
+      "correct": 102,
+      "accuracy": 0.56044,
+      "avg_entry": 0.56753,
+      "avg_net_per_share": -0.02337,
+      "net_one_share_total": -4.25385,
+      "max_sequential_drawdown": 11.6911,
+      "ask_depth_ge_10": 173
+    },
+    "late": {
+      "n": 188,
+      "correct": 113,
+      "accuracy": 0.60106,
+      "avg_entry": 0.56388,
+      "avg_net_per_share": 0.02095,
+      "net_one_share_total": 3.93937,
+      "max_sequential_drawdown": 8.02326,
+      "ask_depth_ge_10": 181
+    }
+  }
+}
