@@ -77,15 +77,15 @@ def ingest(states,row,sigmap,day):
         bid=num(row,prefix+"_bid");size=num(row,prefix+"_bid_size")
         if bid is None or size is None or not 0<bid<1 or size<1:continue
         for config,x in e["scenarios"].items():
-            if x["reason"] is not None or t>x["deadline"]:continue
+            if x["reason"] is not None or t>x["deadline"]+15000 or t>=st+STEP-5000:continue
             tp,sl,_=CONFIGS[config]
             change=bid-e["price"]
-            if tp is not None and change>=tp-0.0000001:
+            if t>=x["deadline"]:
+                x["reason"]="time_exit"
+            elif tp is not None and change>=tp-0.0000001:
                 x["reason"]="take_profit"
             elif sl is not None and change<=-sl+0.0000001:
                 x["reason"]="stop_loss"
-            elif t>=x["deadline"]:
-                x["reason"]="time_exit"
             if x["reason"]:
                 x["exit"]=bid
                 x["t_exit"]=int(t)
