@@ -1,0 +1,792 @@
+{
+  "source_run": "https://github.com/akilatrades/prediction-market-arbitrage-research/actions/runs/40150626615",
+  "limitations": "Polymarket 26-day quote-based one-share scenarios; fair-value approximation relies on Binance start quote not exact Chainlink settlement threshold; not verified execution",
+  "rows": 2246174,
+  "markets": 2443,
+  "strategies": {
+    "fade_1": {
+      "settlement": {
+        "n": 2443,
+        "winrate": 0.5264,
+        "correct": 1286,
+        "entry_mean": 0.5222,
+        "pnl_per_contract": -0.01163,
+        "total_pnl_one_contract_each": -28.4065,
+        "mean_taker_fees": 0.01578
+      },
+      "exit_5m": {
+        "n": 2443,
+        "winrate": 0.5264,
+        "correct": 1286,
+        "entry_mean": 0.5222,
+        "pnl_per_contract": -0.03666,
+        "total_pnl_one_contract_each": -89.552,
+        "mean_taker_fees": 0.02769,
+        "exit_missing": 9
+      },
+      "exit_10m": {
+        "n": 2443,
+        "winrate": 0.5264,
+        "correct": 1286,
+        "entry_mean": 0.5222,
+        "pnl_per_contract": -0.02522,
+        "total_pnl_one_contract_each": -61.602,
+        "mean_taker_fees": 0.02236,
+        "exit_missing": 254
+      },
+      "early_half": {
+        "n": 1224,
+        "winrate": 0.5343,
+        "correct": 654,
+        "entry_mean": 0.525,
+        "pnl_per_contract": -0.00662,
+        "total_pnl_one_contract_each": -8.1053,
+        "mean_taker_fees": 0.01589
+      },
+      "late_half": {
+        "n": 1219,
+        "winrate": 0.5185,
+        "correct": 632,
+        "entry_mean": 0.5194,
+        "pnl_per_contract": -0.01665,
+        "total_pnl_one_contract_each": -20.3012,
+        "mean_taker_fees": 0.01568
+      }
+    },
+    "fade_2": {
+      "settlement": {
+        "n": 1144,
+        "winrate": 0.5288,
+        "correct": 605,
+        "entry_mean": 0.5445,
+        "pnl_per_contract": -0.03139,
+        "total_pnl_one_contract_each": -35.9153,
+        "mean_taker_fees": 0.01576
+      },
+      "exit_5m": {
+        "n": 1144,
+        "winrate": 0.5288,
+        "correct": 605,
+        "entry_mean": 0.5445,
+        "pnl_per_contract": -0.03207,
+        "total_pnl_one_contract_each": -36.6847,
+        "mean_taker_fees": 0.02775,
+        "exit_missing": 4
+      },
+      "exit_10m": {
+        "n": 1144,
+        "winrate": 0.5288,
+        "correct": 605,
+        "entry_mean": 0.5445,
+        "pnl_per_contract": -0.03369,
+        "total_pnl_one_contract_each": -38.5367,
+        "mean_taker_fees": 0.0223,
+        "exit_missing": 125
+      },
+      "early_half": {
+        "n": 570,
+        "winrate": 0.5175,
+        "correct": 295,
+        "entry_mean": 0.5475,
+        "pnl_per_contract": -0.04587,
+        "total_pnl_one_contract_each": -26.1467,
+        "mean_taker_fees": 0.01591
+      },
+      "late_half": {
+        "n": 574,
+        "winrate": 0.5401,
+        "correct": 310,
+        "entry_mean": 0.5415,
+        "pnl_per_contract": -0.01702,
+        "total_pnl_one_contract_each": -9.7687,
+        "mean_taker_fees": 0.01561
+      }
+    },
+    "follow_2": {
+      "settlement": {
+        "n": 1144,
+        "winrate": 0.4712,
+        "correct": 539,
+        "entry_mean": 0.4667,
+        "pnl_per_contract": -0.01141,
+        "total_pnl_one_contract_each": -13.0493,
+        "mean_taker_fees": 0.01582
+      },
+      "exit_5m": {
+        "n": 1144,
+        "winrate": 0.4712,
+        "correct": 539,
+        "entry_mean": 0.4667,
+        "pnl_per_contract": -0.04565,
+        "total_pnl_one_contract_each": -52.2208,
+        "mean_taker_fees": 0.02774,
+        "exit_missing": 4
+      },
+      "exit_10m": {
+        "n": 1144,
+        "winrate": 0.4712,
+        "correct": 539,
+        "entry_mean": 0.4667,
+        "pnl_per_contract": -0.03141,
+        "total_pnl_one_contract_each": -35.9323,
+        "mean_taker_fees": 0.02231,
+        "exit_missing": 125
+      },
+      "early_half": {
+        "n": 570,
+        "winrate": 0.4825,
+        "correct": 275,
+        "entry_mean": 0.4639,
+        "pnl_per_contract": 0.0026,
+        "total_pnl_one_contract_each": 1.4836,
+        "mean_taker_fees": 0.01598
+      },
+      "late_half": {
+        "n": 574,
+        "winrate": 0.4599,
+        "correct": 264,
+        "entry_mean": 0.4696,
+        "pnl_per_contract": -0.02532,
+        "total_pnl_one_contract_each": -14.5329,
+        "mean_taker_fees": 0.01567
+      }
+    },
+    "fade_z15": {
+      "settlement": {
+        "n": 642,
+        "winrate": 0.5576,
+        "correct": 358,
+        "entry_mean": 0.5585,
+        "pnl_per_contract": -0.01636,
+        "total_pnl_one_contract_each": -10.5026,
+        "mean_taker_fees": 0.01552
+      },
+      "exit_5m": {
+        "n": 642,
+        "winrate": 0.5576,
+        "correct": 358,
+        "entry_mean": 0.5585,
+        "pnl_per_contract": -0.02628,
+        "total_pnl_one_contract_each": -16.8694,
+        "mean_taker_fees": 0.02725,
+        "exit_missing": 2
+      },
+      "exit_10m": {
+        "n": 642,
+        "winrate": 0.5576,
+        "correct": 358,
+        "entry_mean": 0.5585,
+        "pnl_per_contract": -0.01432,
+        "total_pnl_one_contract_each": -9.1908,
+        "mean_taker_fees": 0.02193,
+        "exit_missing": 71
+      },
+      "early_half": {
+        "n": 320,
+        "winrate": 0.5625,
+        "correct": 180,
+        "entry_mean": 0.5532,
+        "pnl_per_contract": -0.00624,
+        "total_pnl_one_contract_each": -1.996,
+        "mean_taker_fees": 0.01558
+      },
+      "late_half": {
+        "n": 322,
+        "winrate": 0.5528,
+        "correct": 178,
+        "entry_mean": 0.5638,
+        "pnl_per_contract": -0.02642,
+        "total_pnl_one_contract_each": -8.5066,
+        "mean_taker_fees": 0.01546
+      }
+    },
+    "fade_z2": {
+      "settlement": {
+        "n": 271,
+        "winrate": 0.5756,
+        "correct": 156,
+        "entry_mean": 0.5756,
+        "pnl_per_contract": -0.01518,
+        "total_pnl_one_contract_each": -4.1135,
+        "mean_taker_fees": 0.01518
+      },
+      "exit_5m": {
+        "n": 271,
+        "winrate": 0.5756,
+        "correct": 156,
+        "entry_mean": 0.5756,
+        "pnl_per_contract": -0.02605,
+        "total_pnl_one_contract_each": -7.0597,
+        "mean_taker_fees": 0.02675,
+        "exit_missing": 2
+      },
+      "exit_10m": {
+        "n": 271,
+        "winrate": 0.5756,
+        "correct": 156,
+        "entry_mean": 0.5756,
+        "pnl_per_contract": -0.0208,
+        "total_pnl_one_contract_each": -5.6366,
+        "mean_taker_fees": 0.0209,
+        "exit_missing": 28
+      },
+      "early_half": {
+        "n": 137,
+        "winrate": 0.5985,
+        "correct": 82,
+        "entry_mean": 0.5696,
+        "pnl_per_contract": 0.01363,
+        "total_pnl_one_contract_each": 1.8672,
+        "mean_taker_fees": 0.01535
+      },
+      "late_half": {
+        "n": 134,
+        "winrate": 0.5522,
+        "correct": 74,
+        "entry_mean": 0.5819,
+        "pnl_per_contract": -0.04463,
+        "total_pnl_one_contract_each": -5.9807,
+        "mean_taker_fees": 0.01501
+      }
+    },
+    "follow_z15": {
+      "settlement": {
+        "n": 642,
+        "winrate": 0.4424,
+        "correct": 284,
+        "entry_mean": 0.4528,
+        "pnl_per_contract": -0.02608,
+        "total_pnl_one_contract_each": -16.7416,
+        "mean_taker_fees": 0.01561
+      },
+      "exit_5m": {
+        "n": 642,
+        "winrate": 0.4424,
+        "correct": 284,
+        "entry_mean": 0.4528,
+        "pnl_per_contract": -0.05086,
+        "total_pnl_one_contract_each": -32.653,
+        "mean_taker_fees": 0.02725,
+        "exit_missing": 2
+      },
+      "exit_10m": {
+        "n": 642,
+        "winrate": 0.4424,
+        "correct": 284,
+        "entry_mean": 0.4528,
+        "pnl_per_contract": -0.0499,
+        "total_pnl_one_contract_each": -32.0358,
+        "mean_taker_fees": 0.02194,
+        "exit_missing": 71
+      },
+      "early_half": {
+        "n": 320,
+        "winrate": 0.4375,
+        "correct": 140,
+        "entry_mean": 0.4582,
+        "pnl_per_contract": -0.03641,
+        "total_pnl_one_contract_each": -11.652,
+        "mean_taker_fees": 0.01566
+      },
+      "late_half": {
+        "n": 322,
+        "winrate": 0.4472,
+        "correct": 144,
+        "entry_mean": 0.4475,
+        "pnl_per_contract": -0.01581,
+        "total_pnl_one_contract_each": -5.0896,
+        "mean_taker_fees": 0.01556
+      }
+    },
+    "fade_2_z15": {
+      "settlement": {
+        "n": 373,
+        "winrate": 0.5845,
+        "correct": 218,
+        "entry_mean": 0.5664,
+        "pnl_per_contract": 0.00261,
+        "total_pnl_one_contract_each": 0.9731,
+        "mean_taker_fees": 0.01546
+      },
+      "exit_5m": {
+        "n": 373,
+        "winrate": 0.5845,
+        "correct": 218,
+        "entry_mean": 0.5664,
+        "pnl_per_contract": -0.01588,
+        "total_pnl_one_contract_each": -5.9244,
+        "mean_taker_fees": 0.02696,
+        "exit_missing": 0
+      },
+      "exit_10m": {
+        "n": 373,
+        "winrate": 0.5845,
+        "correct": 218,
+        "entry_mean": 0.5664,
+        "pnl_per_contract": -0.01144,
+        "total_pnl_one_contract_each": -4.2676,
+        "mean_taker_fees": 0.0215,
+        "exit_missing": 49
+      },
+      "early_half": {
+        "n": 185,
+        "winrate": 0.5676,
+        "correct": 105,
+        "entry_mean": 0.5593,
+        "pnl_per_contract": -0.00748,
+        "total_pnl_one_contract_each": -1.3833,
+        "mean_taker_fees": 0.01575
+      },
+      "late_half": {
+        "n": 188,
+        "winrate": 0.6011,
+        "correct": 113,
+        "entry_mean": 0.5734,
+        "pnl_per_contract": 0.01253,
+        "total_pnl_one_contract_each": 2.3564,
+        "mean_taker_fees": 0.01518
+      }
+    },
+    "rsi_fade": {
+      "settlement": {
+        "n": 501,
+        "winrate": 0.5429,
+        "correct": 272,
+        "entry_mean": 0.5477,
+        "pnl_per_contract": -0.02028,
+        "total_pnl_one_contract_each": -10.1612,
+        "mean_taker_fees": 0.01549
+      },
+      "exit_5m": {
+        "n": 501,
+        "winrate": 0.5429,
+        "correct": 272,
+        "entry_mean": 0.5477,
+        "pnl_per_contract": -0.032,
+        "total_pnl_one_contract_each": -16.0297,
+        "mean_taker_fees": 0.02706,
+        "exit_missing": 1
+      },
+      "exit_10m": {
+        "n": 501,
+        "winrate": 0.5429,
+        "correct": 272,
+        "entry_mean": 0.5477,
+        "pnl_per_contract": -0.01375,
+        "total_pnl_one_contract_each": -6.8871,
+        "mean_taker_fees": 0.02163,
+        "exit_missing": 52
+      },
+      "early_half": {
+        "n": 252,
+        "winrate": 0.5437,
+        "correct": 137,
+        "entry_mean": 0.5491,
+        "pnl_per_contract": -0.02083,
+        "total_pnl_one_contract_each": -5.2495,
+        "mean_taker_fees": 0.01539
+      },
+      "late_half": {
+        "n": 249,
+        "winrate": 0.5422,
+        "correct": 135,
+        "entry_mean": 0.5463,
+        "pnl_per_contract": -0.01973,
+        "total_pnl_one_contract_each": -4.9117,
+        "mean_taker_fees": 0.01559
+      }
+    },
+    "rsi_follow": {
+      "settlement": {
+        "n": 501,
+        "winrate": 0.4571,
+        "correct": 229,
+        "entry_mean": 0.465,
+        "pnl_per_contract": -0.02345,
+        "total_pnl_one_contract_each": -11.7498,
+        "mean_taker_fees": 0.01559
+      },
+      "exit_5m": {
+        "n": 501,
+        "winrate": 0.4571,
+        "correct": 229,
+        "entry_mean": 0.465,
+        "pnl_per_contract": -0.04622,
+        "total_pnl_one_contract_each": -23.1558,
+        "mean_taker_fees": 0.0271,
+        "exit_missing": 1
+      },
+      "exit_10m": {
+        "n": 501,
+        "winrate": 0.4571,
+        "correct": 229,
+        "entry_mean": 0.465,
+        "pnl_per_contract": -0.05136,
+        "total_pnl_one_contract_each": -25.7305,
+        "mean_taker_fees": 0.02164,
+        "exit_missing": 52
+      },
+      "early_half": {
+        "n": 252,
+        "winrate": 0.4563,
+        "correct": 115,
+        "entry_mean": 0.465,
+        "pnl_per_contract": -0.02417,
+        "total_pnl_one_contract_each": -6.091,
+        "mean_taker_fees": 0.01552
+      },
+      "late_half": {
+        "n": 249,
+        "winrate": 0.4578,
+        "correct": 114,
+        "entry_mean": 0.4649,
+        "pnl_per_contract": -0.02273,
+        "total_pnl_one_contract_each": -5.6588,
+        "mean_taker_fees": 0.01566
+      }
+    },
+    "vol_fade": {
+      "settlement": {
+        "n": 114,
+        "winrate": 0.5614,
+        "correct": 64,
+        "entry_mean": 0.5483,
+        "pnl_per_contract": -0.00204,
+        "total_pnl_one_contract_each": -0.233,
+        "mean_taker_fees": 0.01511
+      },
+      "exit_5m": {
+        "n": 114,
+        "winrate": 0.5614,
+        "correct": 64,
+        "entry_mean": 0.5483,
+        "pnl_per_contract": -0.03375,
+        "total_pnl_one_contract_each": -3.848,
+        "mean_taker_fees": 0.02669,
+        "exit_missing": 2
+      },
+      "exit_10m": {
+        "n": 114,
+        "winrate": 0.5614,
+        "correct": 64,
+        "entry_mean": 0.5483,
+        "pnl_per_contract": -0.04643,
+        "total_pnl_one_contract_each": -5.2925,
+        "mean_taker_fees": 0.02071,
+        "exit_missing": 19
+      },
+      "early_half": {
+        "n": 57,
+        "winrate": 0.4737,
+        "correct": 27,
+        "entry_mean": 0.52,
+        "pnl_per_contract": -0.06132,
+        "total_pnl_one_contract_each": -3.4953,
+        "mean_taker_fees": 0.015
+      },
+      "late_half": {
+        "n": 57,
+        "winrate": 0.6491,
+        "correct": 37,
+        "entry_mean": 0.5767,
+        "pnl_per_contract": 0.05723,
+        "total_pnl_one_contract_each": 3.2623,
+        "mean_taker_fees": 0.01522
+      }
+    },
+    "contract_fade_5c": {
+      "settlement": {
+        "n": 1823,
+        "winrate": 0.3308,
+        "correct": 603,
+        "entry_mean": 0.3556,
+        "pnl_per_contract": -0.04023,
+        "total_pnl_one_contract_each": -73.3403,
+        "mean_taker_fees": 0.01543
+      },
+      "exit_5m": {
+        "n": 1823,
+        "winrate": 0.3308,
+        "correct": 603,
+        "entry_mean": 0.3556,
+        "pnl_per_contract": -0.03526,
+        "total_pnl_one_contract_each": -64.2741,
+        "mean_taker_fees": 0.02687,
+        "exit_missing": 9
+      },
+      "exit_10m": {
+        "n": 1823,
+        "winrate": 0.3308,
+        "correct": 603,
+        "entry_mean": 0.3556,
+        "pnl_per_contract": -0.0399,
+        "total_pnl_one_contract_each": -72.7388,
+        "mean_taker_fees": 0.02177,
+        "exit_missing": 196
+      },
+      "early_half": {
+        "n": 897,
+        "winrate": 0.3378,
+        "correct": 303,
+        "entry_mean": 0.3612,
+        "pnl_per_contract": -0.03899,
+        "total_pnl_one_contract_each": -34.9721,
+        "mean_taker_fees": 0.01553
+      },
+      "late_half": {
+        "n": 926,
+        "winrate": 0.324,
+        "correct": 300,
+        "entry_mean": 0.3501,
+        "pnl_per_contract": -0.04143,
+        "total_pnl_one_contract_each": -38.3683,
+        "mean_taker_fees": 0.01532
+      }
+    },
+    "contract_follow_5c": {
+      "settlement": {
+        "n": 1823,
+        "winrate": 0.6692,
+        "correct": 1220,
+        "entry_mean": 0.656,
+        "pnl_per_contract": -0.00193,
+        "total_pnl_one_contract_each": -3.5153,
+        "mean_taker_fees": 0.01518
+      },
+      "exit_5m": {
+        "n": 1823,
+        "winrate": 0.6692,
+        "correct": 1220,
+        "entry_mean": 0.656,
+        "pnl_per_contract": -0.0412,
+        "total_pnl_one_contract_each": -75.1028,
+        "mean_taker_fees": 0.02684,
+        "exit_missing": 9
+      },
+      "exit_10m": {
+        "n": 1823,
+        "winrate": 0.6692,
+        "correct": 1220,
+        "entry_mean": 0.656,
+        "pnl_per_contract": -0.0243,
+        "total_pnl_one_contract_each": -44.3077,
+        "mean_taker_fees": 0.02166,
+        "exit_missing": 196
+      },
+      "early_half": {
+        "n": 897,
+        "winrate": 0.6622,
+        "correct": 594,
+        "entry_mean": 0.6506,
+        "pnl_per_contract": -0.00366,
+        "total_pnl_one_contract_each": -3.2864,
+        "mean_taker_fees": 0.01529
+      },
+      "late_half": {
+        "n": 926,
+        "winrate": 0.676,
+        "correct": 626,
+        "entry_mean": 0.6612,
+        "pnl_per_contract": -0.00025,
+        "total_pnl_one_contract_each": -0.229,
+        "mean_taker_fees": 0.01507
+      }
+    },
+    "book_imbalance_follow": {
+      "settlement": {
+        "n": 1259,
+        "winrate": 0.5401,
+        "correct": 680,
+        "entry_mean": 0.5214,
+        "pnl_per_contract": 0.00295,
+        "total_pnl_one_contract_each": 3.7099,
+        "mean_taker_fees": 0.01574
+      },
+      "exit_5m": {
+        "n": 1259,
+        "winrate": 0.5401,
+        "correct": 680,
+        "entry_mean": 0.5214,
+        "pnl_per_contract": -0.02334,
+        "total_pnl_one_contract_each": -29.3852,
+        "mean_taker_fees": 0.02775,
+        "exit_missing": 7
+      },
+      "exit_10m": {
+        "n": 1259,
+        "winrate": 0.5401,
+        "correct": 680,
+        "entry_mean": 0.5214,
+        "pnl_per_contract": -0.01479,
+        "total_pnl_one_contract_each": -18.621,
+        "mean_taker_fees": 0.02247,
+        "exit_missing": 131
+      },
+      "early_half": {
+        "n": 651,
+        "winrate": 0.533,
+        "correct": 347,
+        "entry_mean": 0.5202,
+        "pnl_per_contract": -0.00296,
+        "total_pnl_one_contract_each": -1.9277,
+        "mean_taker_fees": 0.01583
+      },
+      "late_half": {
+        "n": 608,
+        "winrate": 0.5477,
+        "correct": 333,
+        "entry_mean": 0.5228,
+        "pnl_per_contract": 0.00927,
+        "total_pnl_one_contract_each": 5.6376,
+        "mean_taker_fees": 0.01565
+      }
+    },
+    "book_imbalance_fade": {
+      "settlement": {
+        "n": 1259,
+        "winrate": 0.4599,
+        "correct": 579,
+        "entry_mean": 0.4904,
+        "pnl_per_contract": -0.04623,
+        "total_pnl_one_contract_each": -58.2078,
+        "mean_taker_fees": 0.01576
+      },
+      "exit_5m": {
+        "n": 1259,
+        "winrate": 0.4599,
+        "correct": 579,
+        "entry_mean": 0.4904,
+        "pnl_per_contract": -0.05501,
+        "total_pnl_one_contract_each": -69.2536,
+        "mean_taker_fees": 0.02772,
+        "exit_missing": 7
+      },
+      "exit_10m": {
+        "n": 1259,
+        "winrate": 0.4599,
+        "correct": 579,
+        "entry_mean": 0.4904,
+        "pnl_per_contract": -0.05146,
+        "total_pnl_one_contract_each": -64.786,
+        "mean_taker_fees": 0.02247,
+        "exit_missing": 131
+      },
+      "early_half": {
+        "n": 651,
+        "winrate": 0.467,
+        "correct": 304,
+        "entry_mean": 0.4921,
+        "pnl_per_contract": -0.04098,
+        "total_pnl_one_contract_each": -26.6778,
+        "mean_taker_fees": 0.01583
+      },
+      "late_half": {
+        "n": 608,
+        "winrate": 0.4523,
+        "correct": 275,
+        "entry_mean": 0.4885,
+        "pnl_per_contract": -0.05186,
+        "total_pnl_one_contract_each": -31.5299,
+        "mean_taker_fees": 0.01567
+      }
+    },
+    "fair_value_gap_5c": {
+      "settlement": {
+        "n": 825,
+        "winrate": 0.4448,
+        "correct": 367,
+        "entry_mean": 0.4422,
+        "pnl_per_contract": -0.0124,
+        "total_pnl_one_contract_each": -10.2259,
+        "mean_taker_fees": 0.01503
+      },
+      "exit_5m": {
+        "n": 825,
+        "winrate": 0.4448,
+        "correct": 367,
+        "entry_mean": 0.4422,
+        "pnl_per_contract": -0.03359,
+        "total_pnl_one_contract_each": -27.7116,
+        "mean_taker_fees": 0.02623,
+        "exit_missing": 3
+      },
+      "exit_10m": {
+        "n": 825,
+        "winrate": 0.4448,
+        "correct": 367,
+        "entry_mean": 0.4422,
+        "pnl_per_contract": -0.01786,
+        "total_pnl_one_contract_each": -14.7371,
+        "mean_taker_fees": 0.02105,
+        "exit_missing": 94
+      },
+      "early_half": {
+        "n": 449,
+        "winrate": 0.4588,
+        "correct": 206,
+        "entry_mean": 0.4464,
+        "pnl_per_contract": -0.00284,
+        "total_pnl_one_contract_each": -1.2752,
+        "mean_taker_fees": 0.0152
+      },
+      "late_half": {
+        "n": 376,
+        "winrate": 0.4282,
+        "correct": 161,
+        "entry_mean": 0.4372,
+        "pnl_per_contract": -0.02381,
+        "total_pnl_one_contract_each": -8.9507,
+        "mean_taker_fees": 0.01482
+      }
+    },
+    "fair_value_gap_10c": {
+      "settlement": {
+        "n": 211,
+        "winrate": 0.5024,
+        "correct": 106,
+        "entry_mean": 0.4576,
+        "pnl_per_contract": 0.03029,
+        "total_pnl_one_contract_each": 6.3913,
+        "mean_taker_fees": 0.01445
+      },
+      "exit_5m": {
+        "n": 211,
+        "winrate": 0.5024,
+        "correct": 106,
+        "entry_mean": 0.4576,
+        "pnl_per_contract": -0.01277,
+        "total_pnl_one_contract_each": -2.6938,
+        "mean_taker_fees": 0.02501,
+        "exit_missing": 2
+      },
+      "exit_10m": {
+        "n": 211,
+        "winrate": 0.5024,
+        "correct": 106,
+        "entry_mean": 0.4576,
+        "pnl_per_contract": 0.02538,
+        "total_pnl_one_contract_each": 5.3553,
+        "mean_taker_fees": 0.02024,
+        "exit_missing": 25
+      },
+      "early_half": {
+        "n": 124,
+        "winrate": 0.5323,
+        "correct": 66,
+        "entry_mean": 0.4599,
+        "pnl_per_contract": 0.05769,
+        "total_pnl_one_contract_each": 7.1534,
+        "mean_taker_fees": 0.01465
+      },
+      "late_half": {
+        "n": 87,
+        "winrate": 0.4598,
+        "correct": 40,
+        "entry_mean": 0.4544,
+        "pnl_per_contract": -0.00876,
+        "total_pnl_one_contract_each": -0.7621,
+        "mean_taker_fees": 0.01416
+      }
+    }
+  }
+}
