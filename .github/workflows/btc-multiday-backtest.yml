@@ -1,0 +1,31 @@
+name: BTC multiweek YES NO execution study
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/btc_multiday_orderbook_backtest.py"
+      - ".github/workflows/btc-multiday-backtest.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  multiweek-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate offline research script
+        run: python -m py_compile research/btc_multiday_orderbook_backtest.py
+      - name: Run BTC 15m true YES NO top-of-book test
+        run: python -u research/btc_multiday_orderbook_backtest.py
+      - name: Preserve independent execution research
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: btc-multiday-yes-no-execution-study
+          path: outputs/btc_true_yes_no_multiday_execution.json
+          if-no-files-found: warn
+          retention-days: 30
